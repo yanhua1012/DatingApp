@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.API.Data;
+using DatingApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -42,8 +43,17 @@ namespace DatingApp.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        [AllowAnonymous]
+        public async Task<IActionResult> Post([FromBody] Value value)
         {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _context.Values.Add(value);
+            int count = await _context.SaveChangesAsync();
+            return this.CreatedAtAction(nameof(GetValue), "Values", new {Id = 1}, value);
         }
 
         // PUT api/values/5
