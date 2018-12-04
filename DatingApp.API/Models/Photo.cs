@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 
 namespace DatingApp.API.Models
 {
@@ -14,6 +15,7 @@ namespace DatingApp.API.Models
 
         public bool IsMain { get; set; }
 
+        //[JsonIgnore]
         public User User { get; set; }
 
         public int UserId { get; set; }
