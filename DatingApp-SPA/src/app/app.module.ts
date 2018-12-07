@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
+import { UserService } from './_services/user.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
@@ -40,7 +41,8 @@ import { AuthGuard } from './_guards/auth.guard';
       AuthService,
       ErrorInterceptorProvider,
       AlertifyService,
-      AuthGuard
+      AuthGuard,
+      UserService
    ],
    bootstrap: [
       AppComponent
