@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
@@ -45,6 +45,7 @@ export function tokenGetter() {
       HttpClientModule,
       FormsModule,
       BsDropdownModule.forRoot(),
+      TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config: {
