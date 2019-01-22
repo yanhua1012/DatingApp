@@ -12,7 +12,7 @@ import { UserService } from './_services/user.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
-import { AlertifyService } from './_services/Alertify.service';
+import { AlertifyService } from './_services/alertify.service';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
