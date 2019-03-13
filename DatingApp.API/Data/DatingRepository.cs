@@ -47,13 +47,13 @@ namespace DatingApp.API.Data
 
             if (userParams.Likers)
             {
-                var userLikers = await GetUserLikes(userParams.UserId, userParams.Likers);
+                var userLikers = await GetUserLikes(userParams.UserId, true);
                 users = users.Where(u => userLikers.Contains(u.Id));
             }
 
             if (userParams.Likees)
             {
-                var userLikees = await GetUserLikes(userParams.UserId, userParams.Likers);
+                var userLikees = await GetUserLikes(userParams.UserId, false);
                 users = users.Where(u => userLikees.Contains(u.Id));
             }
 
@@ -91,13 +91,13 @@ namespace DatingApp.API.Data
 
             if (likers)
             {
-                // anyone liking him
-                return user.Likers.Where(u => u.LikeeId == id).Select(i => i.LikerId);
+                // members who I like
+                return user.Likers.Select(i => i.LikerId);
             }
             else
             {
                 // anyone he likes
-                return user.Likees.Where(u => u.LikerId == id).Select(i => i.LikeeId);
+                return user.Likees.Select(i => i.LikeeId);
             }
         }
 
